@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .models import User
 from .forms import MyUseerCreationForm
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 # Create your views here.
 def signupUser(request):
@@ -12,13 +12,14 @@ def signupUser(request):
     if request.method == 'POST':
         form = MyUseerCreationForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
-            login(request, new_user)
-            return redirect('/')
-    else:
-        messages.error(request, _('An error occured during registration'))
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, _('An error occured during registration'))
     context = {'form': form}
     return render(request, 'user/signup.html', context)
+
 
 def loginUser(request):
     if request.user.is_authenticated:
@@ -38,7 +39,7 @@ def loginUser(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, _('User does not exist'))
+            messages.error(request, _('Email or password is given wrong'))
     return render(request, 'user/login.html')
 
 def profileUser(request, pk):
