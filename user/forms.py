@@ -11,7 +11,13 @@ class MyUseerCreationForm(UserCreationForm):
             'type':  'email',
             'class': 'border p-3 w-100 my-2',
             })
-        
+
+        # self.fields['username'].widget.attrs.update({
+        #     'placeholder': 'Username',
+        #     'type':  'text',
+        #     'class': 'border p-3 w-100 my-2',
+        #     })
+
         self.fields['password1'].widget.attrs.update({
             'placeholder': 'Password',
             'type':  'password',
