@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import User
 from .forms import MyUseerCreationForm
@@ -42,9 +43,13 @@ def loginUser(request):
             messages.error(request, _('Email or password is given wrong'))
     return render(request, 'user/login.html')
 
-def profileUser(request, pk):
-    user = User.objects.get(id=pk)
-    return render(request, 'user/user-profile.html')
+
+@login_required(login_url='login')
+def editUser(request):
+    user = request.user
+    form = MyUseerCreationForm(instance=user)
+    context = {'user': user, 'form': form}
+    return render(request, 'user/user-edit.html', context)
 
 
 def logoutUser(request):
