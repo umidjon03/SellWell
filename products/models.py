@@ -30,6 +30,9 @@ class Product(models.Model):
     contact_number = models.IntegerField()
     email          = models.EmailField()
     address        = models.TextField()
+    # status         = models.BooleanField(default=True )
+
+    created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title

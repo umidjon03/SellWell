@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from .models import User
 from .forms import MyUserCreationForm, UserForm
 from django.utils.translation import gettext as _
+from products.models import Product
 
 # Create your views here.
 def signupUser(request):
@@ -69,8 +70,9 @@ def editUser(request):
 
 @login_required(login_url='login')
 def myProfile(request):
+    products = Product.objects.all()
     user = request.user
-    return render(request, 'user/my-profile.html')
+    return render(request, 'user/my-profile.html', {'user': user, 'products': products})
 
 
 def logoutUser(request):
