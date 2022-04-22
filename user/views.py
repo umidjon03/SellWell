@@ -52,6 +52,7 @@ def editUser(request):
         if request.POST.get('form_type') == 'form_personal':
             form_personal = UserForm(request.POST, request.FILES, instance=user)
             if form_personal.is_valid():
+                request.user.avatar = request.FILES['file']
                 form_personal.save()
                 return redirect('user-edit')
         elif request.POST.get('form_type') == 'form_email':
@@ -66,6 +67,10 @@ def editUser(request):
     return render(request, 'user/user-edit.html', {'form_personal': form_personal})
 
 
+@login_required(login_url='login')
+def myProfile(request):
+    user = request.user
+    return render(request, 'user/my-profile.html')
 
 
 def logoutUser(request):

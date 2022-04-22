@@ -59,11 +59,11 @@ class UserForm(ModelForm):
             "id":    "last_name",
         })
 
-        self.fields['avatar'].widget.attrs.update({
-            "type":  "file", 
-            "class": "form-control-file mt-2 pt-1",
-            "id":    "input-file"
-        })
+        # self.fields['avatar'].widget.attrs.update({
+        #     "type":  "file", 
+        #     "class": "form-control-file mt-2 pt-1",
+        #     "id":    "input-file"
+        # })
         
         self.fields['community_name'].widget.attrs.update({
             "type":  "text",

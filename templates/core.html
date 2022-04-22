@@ -66,8 +66,8 @@
     
                                     <!-- Dropdown list -->
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="dashboard.html">Dashboard</a>
-                                        <a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
+                                        <a class="dropdown-item" href="{%url 'my-profile'%}">My Profile</a>
+                                        <!-- <a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a> -->
                                         <a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
                                         <a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
                                         <a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
@@ -113,7 +113,7 @@
                                 </li>
                               {% endif %}
                                 <li class="nav-item">
-                                    <a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+                                    <a class="nav-link text-white add-button" href="{% url 'adding' %}"><i class="fa fa-plus-circle"></i> Add Listing</a>
                                 </li>
                             </ul>
                         </div>
