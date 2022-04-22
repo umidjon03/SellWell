@@ -20,6 +20,11 @@ Some Features
 ![image](https://user-images.githubusercontent.com/80380331/164614635-225d3db4-24af-453e-a168-7134c10892d3.png)
 
 
+## User Profile
+
+
+<img width="948" alt="image" src="https://user-images.githubusercontent.com/80380331/164726778-59fd2dd3-cac1-45ec-87c0-5f10364b6f2f.png">
+
 
 ## Edit Profile
 
